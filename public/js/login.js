@@ -8,7 +8,7 @@ export const login = async (email, password) => {
   try {
     const res = await axios({
       method: 'post',
-      url: 'http://localhost:3333/api/v1/users/login',
+      url: '/api/v1/users/login',
       data: {
         email: email,
         password: password,
@@ -30,7 +30,7 @@ export const logout = async () => {
   try {
     const res = await axios({
       method: 'get',
-      url: 'http://localhost:3333/api/v1/users/logout',
+      url: '/api/v1/users/logout',
     });
     if (res.data.status === 'success') location.assign('/');
   } catch (err) {
