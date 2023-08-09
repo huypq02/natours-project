@@ -1,0 +1,17 @@
+{
+  "extends": "@parcel/config-default",
+  "transformers": {
+    "*.{zip,tgz}": [
+      "@parcel/transformer-raw"
+    ]
+  }
+  // "bundler": "@company/parcel-bundler",
+  // "runtimes": [
+  //   "@company/parcel-runtime",
+  //   "..."
+  // ],
+  // "namers": [
+  //   "@company/parcel-namer",
+  //   "..."
+  // ]
+}
