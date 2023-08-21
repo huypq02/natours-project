@@ -6,6 +6,9 @@ block content
             h2.heading-secondary.ma-bt-lg Sign up your account
             form.form.form--signup
                 .form__group
+                    label.form__label(for='name') Name
+                    input#email.form__input(type='text', placeholder='Enter Your Name', required)
+                .form__group
                     label.form__label(for='email') Email address
                     input#email.form__input(type='email', placeholder='you@example.com', required)
                 .form__group.ma-bt-md
