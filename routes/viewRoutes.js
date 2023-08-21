@@ -2,6 +2,7 @@ const express = require('express');
 const {
   getOverview,
   getTour,
+  getSignupForm,
   getLoginForm,
   getAccount,
   updateUserData,
@@ -14,6 +15,7 @@ const router = express.Router();
 
 router.route('/').get(createBookingCheckout, isLoggedIn, getOverview);
 router.route('/tour/:slug').get(isLoggedIn, getTour);
+router.route('/signup').get(isLoggedIn, getSignupForm);
 router.route('/login').get(isLoggedIn, getLoginForm);
 router.route('/me').get(protect, getAccount);
 router.route('/my-tours').get(protect, getMyTours);

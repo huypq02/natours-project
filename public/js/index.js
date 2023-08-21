@@ -2,11 +2,13 @@
 // import '@babel/polyfill';
 import { displayMap } from './mapbox.js';
 import { login, logout } from './login.js';
+import { signup } from './signup.js';
 import { updateSettings } from './updateSettings.js';
 import { bookTour } from './stripe.js';
 
 //DOM ELEMENTS
 const mapBox = document.getElementById('map');
+const signForm = document.querySelector('.form--signup');
 const loginForm = document.querySelector('.form--login');
 const logOutBtn = document.querySelector('.nav__el--logout');
 const userDataForm = document.querySelector('.form-user-data');
@@ -17,6 +19,17 @@ const bookBtn = document.getElementById('book-tour');
 if (mapBox) {
   const locations = JSON.parse(mapBox.dataset.locations);
   displayMap(locations);
+}
+
+if (signForm) {
+  signForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const passwordConfirm = document.getElementById('passwordConfirm').value;
+    console.log(email, password, passwordConfirm);
+    signup(email, password, passwordConfirm);
+  });
 }
 
 if (loginForm) {

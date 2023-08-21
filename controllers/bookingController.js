@@ -46,6 +46,15 @@ exports.checkoutSession = catchAsync(async (req, res) => {
     status: 'success',
     session,
   });
+
+  // console.log(session.url);
+  // // res.redirect(session.url);
+
+  // res
+  //   .writeHead(302, {
+  //     Location: `${session.url}`,
+  //   })
+  //   .end();
 });
 
 exports.createBookingCheckout = catchAsync(async (req, res, next) => {

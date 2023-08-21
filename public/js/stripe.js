@@ -6,6 +6,7 @@ export const bookTour = async (tourId) => {
       url: `/api/v1/bookings/checkout-session/${tourId}`,
       method: 'get',
     });
+    console.log(res);
 
     if (res.data.status === 'success') location.assign(res.data.session.url);
   } catch (err) {
