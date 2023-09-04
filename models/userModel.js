@@ -7,14 +7,14 @@ const userSchema = new mongoose.Schema(
   {
     name: {
       type: String,
-      required: [true, "What's your name?"],
+      // required: [true, "What's your name?"],
     },
     email: {
       type: String,
       required: [true, 'Please enter your email!'],
       unique: true,
       lowercase: true,
-      validate: [validator.isEmail, 'Please enter a valid email'],
+      // validate: [validator.isEmail, 'Please enter a valid email'],
     },
     photo: {
       type: String,
@@ -27,7 +27,7 @@ const userSchema = new mongoose.Schema(
     },
     password: {
       type: String,
-      required: true,
+      // required: true,
       validate: [
         validator.isStrongPassword,
         'Please provide a strong password are length (the longer the better); a mix of letters (upper and lower case), numbers, and symbols.',
@@ -36,7 +36,7 @@ const userSchema = new mongoose.Schema(
     },
     passwordConfirm: {
       type: String,
-      required: true,
+      // required: true,
       validate: [
         // this only works on CREATE and SAVE
         function (el) {
@@ -96,8 +96,8 @@ userSchema.pre('save', async function (next) {
   next();
 });
 
-userSchema.pre('save', function (next) {
-  if (!this.isModified || this.isNew) return next();
+userSchema.pre(['save', 'create'], function (next) {
+  if (!this.isModified || !this.isNew) return next();
 
   this.passwordChangedAt = Date.now() - 1000;
   next();

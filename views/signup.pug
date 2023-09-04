@@ -7,7 +7,7 @@ block content
             form.form.form--signup
                 .form__group
                     label.form__label(for='name') Name
-                    input#email.form__input(type='text', placeholder='Enter Your Name', required)
+                    input#name.form__input(type='text', placeholder='Enter Your Name', required)
                 .form__group
                     label.form__label(for='email') Email address
                     input#email.form__input(type='email', placeholder='you@example.com', required)
@@ -19,3 +19,6 @@ block content
                     input#passwordConfirm.form__input(type='password', placeholder='••••••••', required, minlength='8')
                 .form__group
                     button.btn.btn--green Sign up
+            br
+            // GOOGLE OAUTH 2.0
+            include oauth/google.pug

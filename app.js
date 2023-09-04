@@ -9,6 +9,7 @@ const hpp = require('hpp');
 const xss = require('xss-clean');
 const cookieParser = require('cookie-parser');
 const compression = require('compression');
+const passport = require('passport');
 
 const reviewRouter = require('./routes/reviewRoutes');
 const viewRouter = require('./routes/viewRoutes');
@@ -28,6 +29,8 @@ app.set('views', path.join(__dirname, 'views'));
 /// GLOBAL MIDDLEWARE
 // Serving static file
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(passport.initialize());
 
 // set security HTTP Headers
 app.use(
@@ -70,7 +73,9 @@ app.use(compression());
 // Testing middleware
 app.use((req, res, next) => {
   req.requestTime = new Date().toISOString();
+
   // console.log(req.cookies);
+  // console.log(req.session);
   next();
 });
 

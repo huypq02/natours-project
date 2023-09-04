@@ -8,7 +8,7 @@ import { bookTour } from './stripe.js';
 
 //DOM ELEMENTS
 const mapBox = document.getElementById('map');
-const signForm = document.querySelector('.form--signup');
+const signupForm = document.querySelector('.form--signup');
 const loginForm = document.querySelector('.form--login');
 const logOutBtn = document.querySelector('.nav__el--logout');
 const userDataForm = document.querySelector('.form-user-data');
@@ -21,14 +21,15 @@ if (mapBox) {
   displayMap(locations);
 }
 
-if (signForm) {
-  signForm.addEventListener('submit', (e) => {
+if (signupForm) {
+  signupForm.addEventListener('submit', (e) => {
     e.preventDefault();
+    const name = document.getElementById('name').value;
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
     const passwordConfirm = document.getElementById('passwordConfirm').value;
-    console.log(email, password, passwordConfirm);
-    signup(email, password, passwordConfirm);
+    console.log(name, email, password, passwordConfirm);
+    signup(name, email, password, passwordConfirm);
   });
 }
 

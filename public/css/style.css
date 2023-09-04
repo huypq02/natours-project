@@ -1232,6 +1232,10 @@ body {
   border-radius: 5px;
 }
 
+.fa-google {
+  padding: 5px;
+}
+
 .form__input {
   display: block;
   font-family: inherit;

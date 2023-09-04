@@ -22,7 +22,15 @@ const {
   protect,
   updatePassword,
   restrictTo,
+  redirectToGoogle,
+  redirectBackToApp,
+  loginByGoogleAuth,
 } = require('../controllers/authController');
+
+router.route('/login/oauth2/google').get(redirectToGoogle);
+router
+  .route('/oauth2/redirect/google')
+  .get(redirectBackToApp, loginByGoogleAuth);
 
 router.route('/signup').post(signup);
 router.route('/login').post(login);
