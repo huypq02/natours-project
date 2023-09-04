@@ -33,12 +33,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(passport.initialize());
 
 // set security HTTP Headers
-app.use(
-  helmet({
-    contentSecurityPolicy: false,
-    xDownloadOptions: false,
-  })
-);
+// app.use(
+//   helmet({
+//     contentSecurityPolicy: false,
+//     xDownloadOptions: false,
+//   })
+// );
 
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
